@@ -47,7 +47,10 @@ import sklearn
 
 Did you install Python 2 or 3? Why?  
 
->> REPLACE THIS TEXT WITH YOUR RESPONSE
+Python 3 because: 
+* It is the most recent version and seems like the best option to learn so that i am current when applying for jobs. 
+* It is required for HackerRank
+* It is recommended for the bootcamp. 
 
 ### Q2. Which Python Version Installed   
 
@@ -55,7 +58,7 @@ In the Terminal:
 
 `python3 --version`
 
->> REPLACE THIS TEXT WITH YOUR RESPONSE
+>> Python 3.7.1
 
  
 
