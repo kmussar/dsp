@@ -77,7 +77,7 @@ We can reasonably conclude that there is not much difference between the weights
 
 See [ipython file](https://github.com/kmussar/ThinkStats2/blob/master/code/chap02ex_KM.ipynb) for my code in context.
 
-You will see effect size again and again in results of algorithms that are run in data science.  For instance, in the bootcamp, when you run a regression analysis, you will recognize the t-statistic as an example of effect size.
+>You will see effect size again and again in results of algorithms that are run in data science.  For instance, in the bootcamp, when you run a regression analysis, you will recognize the t-statistic as an example of effect size.> - Metis
 
 ---
 ### Q2. [Think Stats Chapter 3 Exercise 1](statistics/3-1-actual_biased.md) (actual vs. biased)
@@ -91,6 +91,9 @@ Excercise: Use the column numkdhh in the nsfg dataset to construct the actual an
     thinkplot.Pmfs([pmf,biased])
     thinkplot.Config(xlabel='Number of Children', ylabel='PMF')
 The biased data does not include any households without children. This makes sense since if children are being asked about their households, households without children can, by definition, not be represented in the survey. 
+
+![Image of unbiased PMF](https://github.com/kmussar/ThinkStats2/blob/master/code/ch3ex1_pmf.png)
+![Image of both biased and unbiased PMF](https://github.com/kmussar/ThinkStats2/blob/master/code/ch3ex1_both.png)
 
 Computing their means:
 Note: .Mean() works in this file but I beleive the standard python function for mean is .mean() which does not work. Is .Mean() a function specific to thinkstats2? 
@@ -106,6 +109,8 @@ See my [iPython notebook](https://github.com/kmussar/ThinkStats2/blob/master/cod
 This questions asks you to examine the function that produces random numbers.  Is it really random?  A good way to test that is to examine the pmf and cdf of the list of random numbers and visualize the distribution.  If you're not sure what pmf is, read more about it in Chapter 3.  
 
 
+
+---
 ### Q4. [Think Stats Chapter 5 Exercise 1](statistics/5-1-blue_men.md) (normal distribution of blue men)
 This is a classic example of hypothesis testing using the normal distribution.  The effect size used here is the Z-statistic. 
 
