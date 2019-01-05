@@ -77,7 +77,8 @@ We can reasonably conclude that there is not much difference between the weights
 
 See [ipython file](https://github.com/kmussar/ThinkStats2/blob/master/code/chap02ex_KM.ipynb) for my code in context.
 
->You will see effect size again and again in results of algorithms that are run in data science.  For instance, in the bootcamp, when you run a regression analysis, you will recognize the t-statistic as an example of effect size.> - Metis
+>You will see effect size again and again in results of algorithms that are run in data science.  For instance, in the bootcamp, when you run a regression analysis, you will recognize the t-statistic as an example of effect size.
+> - Metis
 
 ---
 ### Q2. [Think Stats Chapter 3 Exercise 1](statistics/3-1-actual_biased.md) (actual vs. biased)
@@ -108,7 +109,26 @@ See my [iPython notebook](https://github.com/kmussar/ThinkStats2/blob/master/cod
 ### Q3. [Think Stats Chapter 4 Exercise 2](statistics/4-2-random_dist.md) (random distribution)  
 This questions asks you to examine the function that produces random numbers.  Is it really random?  A good way to test that is to examine the pmf and cdf of the list of random numbers and visualize the distribution.  If you're not sure what pmf is, read more about it in Chapter 3.  
 
+    random_numbers = np.random.random(1000)
+    random_numbers
+    # plot PMF
+    thinkplot.Pmf(thinkstats2.Pmf(random_numbers),linewidth=0.1)
+    thinkplot.Config(xlabel='Weight (pounds)', ylabel='PMF')
+    
+    # Plot CDF
+    thinkplot.Cdf(thinkstats2.Cdf(random_numbers, label='randomly generated numbers'))
+    thinkplot.Config(xlabel='Birth weight (pounds)', ylabel='CDF')
+    
+![Image of PMF](https://github.com/kmussar/ThinkStats2/blob/master/code/ch4ex2_pmf.png)
+![Image of CDF](https://github.com/kmussar/ThinkStats2/blob/master/code/ch4ex2_cdf.png)
 
+Yes, both the PMF and CDF show that randomly generated numbers do indeed have an even distribution. 
+
+However, this seems completely unrelated to birth weight. It looks like all of the randomy generated values are between 0 and 1 while that does not make any sense for birth weight. 
+
+Perhaps a better way of looking at this would be to randomly generate values between the min and max birth weight and compare that distribution (should be even) to the observed distribution.
+
+See my [iPython notebook](https://github.com/kmussar/ThinkStats2/blob/master/code/chap04ex-KM.ipynb) for my code in context.
 
 ---
 ### Q4. [Think Stats Chapter 5 Exercise 1](statistics/5-1-blue_men.md) (normal distribution of blue men)
