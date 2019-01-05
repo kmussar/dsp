@@ -63,17 +63,44 @@ $ git clone https://github.com/AllenDowney/ThinkStats2.git
 ## <a name="section-d"></a>4.  Required Exercises
 
 *Include your Python code, results and explanation (where applicable).*
+My code is indicated by << and comments are in plain text. 
 
 ### Q1. [Think Stats Chapter 2 Exercise 4](statistics/2-4-cohens_d.md) (effect size of Cohen's d)  
 Cohen's D is an example of effect size.  Other examples of effect size are:  correlation between two variables, mean difference, regression coefficients and standardized test statistics such as: t, Z, F, etc. In this example, you will compute Cohen's D to quantify (or measure) the difference between two groups of data.   
 
-You will see effect size again and again in results of algorithms that are run in data science.  For instance, in the bootcamp, when you run a regression analysis, you will recognize the t-statistic as an example of effect size.
+>> others.totalwgt_lb.mean() - firsts.totalwgt_lb.mean()
+First babies are on average 0.12 pounds lighter than others. 
+>> CohenEffectSize(firsts.totalwgt_lb, others.totalwgt_lb)
+This difference is about 0.09 standard deviations - which is very small. 
+We can reasonably conclude that there is not much difference between the weights of first babies and other order babies. 
 
+See [ipython file](https://github.com/kmussar/ThinkStats2/blob/master/code/chap02ex_KM.ipynb) for my code in context.
+
+You will see effect size again and again in results of algorithms that are run in data science.  For instance, in the bootcamp, when you run a regression analysis, you will recognize the t-statistic as an example of effect size.
+---
 ### Q2. [Think Stats Chapter 3 Exercise 1](statistics/3-1-actual_biased.md) (actual vs. biased)
 This problem presents a robust example of actual vs biased data.  As a data scientist, it will be important to examine not only the data that is available, but also the data that may be missing but highly relevant.  You will see how the absence of this relevant data will bias a dataset, its distribution, and ultimately, its statistical interpretation.
 
+Excercise: Use the column numkdhh in the nsfg dataset to construct the actual and biased distributions for the number of children under 18 in the households of respondents. Also plot these and compute their means. 
+
+<< pmf = thinkstats2.Pmf(resp.numkdhh, label='numkdhh')
+<< biased = BiasPmf(pmf, label='biased')
+<< thinkplot.PrePlot(2)
+<< thinkplot.Pmfs([pmf,biased])
+<< thinkplot.Config(xlabel='Number of Children', ylabel='PMF')
+The biased data does not include any households without children. This makes sense since if children are being asked about their households, households without children can, by definition, not be represented in the survey. 
+
+Computing their means:
+Note: .Mean() works in this file but I beleive the standard python function for mean is .mean() which does not work. Is .Mean() a function specific to thinkstats2? 
+<< pmf.Mean()
+<< biased.Mean()
+The unbiased mean is 1.0 children/household, wherease the biased mean is 2.4 children/household. 
+See my [iPython notebook](https://github.com/kmussar/ThinkStats2/blob/master/code/chap03ex-KM.ipynb) for my code in context. 
+---
+
 ### Q3. [Think Stats Chapter 4 Exercise 2](statistics/4-2-random_dist.md) (random distribution)  
 This questions asks you to examine the function that produces random numbers.  Is it really random?  A good way to test that is to examine the pmf and cdf of the list of random numbers and visualize the distribution.  If you're not sure what pmf is, read more about it in Chapter 3.  
+
 
 ### Q4. [Think Stats Chapter 5 Exercise 1](statistics/5-1-blue_men.md) (normal distribution of blue men)
 This is a classic example of hypothesis testing using the normal distribution.  The effect size used here is the Z-statistic. 
