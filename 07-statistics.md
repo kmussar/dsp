@@ -177,12 +177,13 @@ Probability that Elvis's brother was fraternal = P(B) = P(fraternal twins) P(fra
 
 P(identical & boy) = P(A) / (P(A) + P(B)) = (1/600) / (1/600 + 1/500) = 5/11 = 45% 
 
-So, it is 45% likely that Elvis's brother was identical. 
+#### So, it is 45% likely that Elvis's brother was identical. 
 
 ---
 
 ### Q6. Bayesian &amp; Frequentist Comparison  
 How do frequentist and Bayesian statistics compare?
+
 These are both approaches for computing probabilities of events. Frequentist statistics focuses only on repeatable random events with an infinite number of potential events (such as coin tosses), but do not deal with forcasting or predicting the likelihood of single events (such as election results). Bayesian statistics, however, can be applied more broadly to single events as they use piror probabilities to inform the likelihood of the probability you would like to predict. Bayesian statistics alow you to mathematically compute the probability of one event, given another event. 
 
 ---
