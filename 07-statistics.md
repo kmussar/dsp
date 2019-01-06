@@ -133,8 +133,31 @@ See my [iPython notebook](https://github.com/kmussar/ThinkStats2/blob/master/cod
 ---
 ### Q4. [Think Stats Chapter 5 Exercise 1](statistics/5-1-blue_men.md) (normal distribution of blue men)
 This is a classic example of hypothesis testing using the normal distribution.  The effect size used here is the Z-statistic. 
+In the BRFSS (see Section 5.4), the distribution of heights is roughly normal with parameters µ = 178 cm and σ = 7.7 cm for men, and µ = 163 cm and σ = 7.3 cm for women. 
+In order to join Blue Man Group, you have to be male between 5’10” and 6’1” (see http://bluemancasting.com). What percentage of the U.S. male population is in this range? Hint: use scipy.stats.norm.cdf. 
+    
+    #imports    
+    import scipy.stats
+    
+    #given information
+    mu = 178
+    sigma = 7.7
+    
+    # compute distribution (using normal distribution as instructed) 
+    dist = scipy.stats.norm(loc=mu, scale=sigma)
+    
+    # define limits of population we're looking at 
+    low = dist.cdf(177.8)    # 5'10"
+    high = dist.cdf(185.4)   # 6'1"
+    low, high, high-low
+    # output: (0.48963902786483265, 0.8317337108107857, 0.3420946829459531)
+   
+ 34.2% of the population is between 5'10 and 6'1 
+ This seems high. Maybe if it's just men, but with women included I'd expect this to be lower. 
+ 
+ [iPython notebook](https://github.com/kmussar/ThinkStats2/blob/master/code/chap05ex-KM.ipynb) for context. 
 
-
+---
 
 ### Q5. Bayesian (Elvis Presley twin) 
 
@@ -142,14 +165,25 @@ Bayes' Theorem is an important tool in understanding what we really know, given 
 
 Elvis Presley had a twin brother who died at birth.  What is the probability that Elvis was an identical twin? Assume we observe the following probabilities in the population: fraternal twin is 1/125 and identical twin is 1/300.  
 
->> REPLACE THIS TEXT WITH YOUR RESPONSE
+To answer this one, you need some background information: According to the Wikipedia article on twins:  ``Twins are estimated to be approximately 1.9% of the world population, with monozygotic twins making up 0.2% of the total---and 8% of all twins.''
+
+The 2 possibilities are: 
+A: Elvis's brother was identical (identical birth event) 
+B: Elvis's brother was fraternal (fraternal twin event) 
+
+Probability that Elvis's brother was identical = P(A) = P(identical twins) P(identical twins that are both boys) = (1/300) (1/2) = (1/600)
+
+Probability that Elvis's brother was fraternal = P(B) = P(fraternal twins) P(fraternal twins that are both boys) = (1/125) (1/4) = (1/500)
+
+P(identical & boy) = P(A) / (P(A) + P(B)) = (1/600) / (1/600 + 1/500) = 5/11 = 45% 
+
+So, it is 45% likely that Elvis's brother was identical. 
 
 ---
 
 ### Q6. Bayesian &amp; Frequentist Comparison  
 How do frequentist and Bayesian statistics compare?
-
->> REPLACE THIS TEXT WITH YOUR RESPONSE
+These are both approaches for computing probabilities of events. Frequentist statistics focuses only on repeatable random events with an infinite number of potential events (such as coin tosses), but do not deal with forcasting or predicting the likelihood of single events (such as election results). Bayesian statistics, however, can be applied more broadly to single events as they use piror probabilities to inform the likelihood of the probability you would like to predict. Bayesian statistics alow you to mathematically compute the probability of one event, given another event. 
 
 ---
 
